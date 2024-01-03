@@ -1,0 +1,13 @@
+<p class="display-4 my-3">Posts</p>
+<hr />
+
+<app-post-form [post]="post" />
+
+<div class="card my-3" *ngFor="let post of postService.posts; let i = index">
+    <div class="card-body">
+        <h3 class="card-title text-primary">{{post.user.userName | fname}}</h3>
+        <hr />
+        <h5 class="card-subtitle mb-3">{{post.postTitle}}</h5>
+        <p class="card-text">{{post.postBody}}</p>
+    </div>
+</div>

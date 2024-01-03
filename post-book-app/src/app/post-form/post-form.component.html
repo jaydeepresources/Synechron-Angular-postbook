@@ -1,0 +1,20 @@
+<div class="card mt-3">
+    <div class="card-body">
+        <form [formGroup]="postForm" (ngSubmit)="postSubmit()">
+            <div class="mb-3">
+                <label for="title" class="form-label">Post Title</label>
+                <input type="text" class="form-control" id="title" placeholder="enter post title"
+                    formControlName="postTitle" required>
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Post Body</label>
+                <textarea class="form-control" id="body" placeholder="enter post body" rows="3"
+                    formControlName="postBody" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary me-2"
+                [disabled]="postForm.pristine || (postForm.dirty && postForm.invalid)">Save</button>
+
+            <button type="button" class="btn btn-primary" (click)="deletePost()" *ngIf="post.postId > 0">Delete</button>
+        </form>
+    </div>
+</div>
